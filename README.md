@@ -149,7 +149,6 @@ The Academia page renders its main content inside iframes. The extension reads f
 
 ## Known Limitations
 
-- Currently targets Batch 1 of the 2025 unified timetable. The URL is hardcoded to `#Page:Unified_Time_Table_2025_Batch_1`. Students in other batches will need to update this in `content.js`.
 - Tested on SRM Kattankulathur only. Other SRM campuses may use different portal structures.
 - If Academia is slow or under load, sync may time out and return partial data. Running sync again usually resolves this.
 - Marks parsing depends on the nested table structure Zoho uses for test performance cells. If SRM changes the portal layout, the marks parser may break first.
@@ -160,7 +159,6 @@ The Academia page renders its main content inside iframes. The extension reads f
 
 Pull requests are welcome. Some things worth working on:
 
-- Auto-detect batch number from the student profile page
 - Support for other SRM campus portals
 - Attendance drop notification when a subject goes below 75%
 - Support for the CGPA and grade report page
