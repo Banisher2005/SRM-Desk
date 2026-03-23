@@ -7,14 +7,20 @@ SRM Desk is an unofficial companion for SRM Academia students. It replaces the c
 Features
 
 📊 Attendance — per-subject percentage, skip margin calculator (how many more you can bunk while staying above 75%), and color-coded warnings
+
 📝 Marks — CAT/FT scores per subject with running totals
+
 📅 Today's Schedule — resolves your slot codes (A, B, C, P47-P48...) against the Unified Time Table using the day's actual Day Order (not Mon/Tue/Wed)
+
 🗓 Browse any Day Order — see the schedule for Day 1 through Day 5 anytime
+
 🔒 Fully private — your credentials go directly to SRM's servers. Nothing is stored or sent anywhere else. Ever.
 
 How it works
-The Chrome extension injects into your already-logged-in SRM Academia session and reads the rendered DOM directly — no scraping APIs, no third-party servers. Data is stored in chrome.storage.local and read by the dashboard page bundled with the extension.
+  The Chrome extension injects into your already-logged-in SRM Academia session and reads the rendered DOM directly — no scraping APIs, no third-party servers. Data is stored in chrome.storage.local and read by the dashboard page bundled with the extension.
 Stack
 Chrome Extension (MV3) · Vanilla JS · HTML/CSS
+
 Disclaimer
+
 Unofficial project. Not affiliated with SRM Institute of Science and Technology. Use responsibly.
