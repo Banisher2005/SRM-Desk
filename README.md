@@ -1,4 +1,4 @@
-# SRM Desk
+<img width="1600" height="842" alt="image" src="https://github.com/user-attachments/assets/3efa89ba-8452-4717-b6d3-1353e3e64c4a" /><img width="1600" height="815" alt="image" src="https://github.com/user-attachments/assets/be8e15e5-f988-47c9-8c69-61251e620979" /># SRM Desk
 
 An unofficial Chrome extension that replaces the SRM Academia portal with a clean, fast dashboard. Shows your attendance with skip margins, internal marks, and today's class schedule resolved from the Day Order system.
 
@@ -79,6 +79,16 @@ The extension is not on the Chrome Web Store. Install it manually in developer m
 5. Select the `srm-desk` folder — the one containing `manifest.json`
 
 The SRM Desk icon will appear in your Chrome toolbar.
+
+<img width="1600" height="806" alt="image" src="https://github.com/user-attachments/assets/73baa4c5-37a1-421a-9e12-def252e66df4" />
+<img width="1600" height="899" alt="image" src="https://github.com/user-attachments/assets/8d1d34b9-f4ca-4607-bc7f-e3061f256166" />
+<img width="1600" height="899" alt="image" src="https://github.com/user-attachments/assets/2514a319-0303-4a49-89ac-5e0ac9e142e9" />
+<img width="1600" height="832" alt="image" src="https://github.com/user-attachments/assets/16e23f1d-ab9e-4b81-ad5b-f85eb13e1baa" />
+<img width="1600" height="896" alt="image" src="https://github.com/user-attachments/assets/0c5b436d-ccc7-49ce-b9f5-ba09486fd250" />
+<img width="1600" height="815" alt="image" src="https://github.com/user-attachments/assets/ef681fa3-290d-489f-8fac-5372f154c7be" />
+<img width="1600" height="806" alt="image" src="https://github.com/user-attachments/assets/fc10fff9-9489-421a-bdbb-5d4e5548abfa" />
+<img width="930" height="592" alt="image" src="https://github.com/user-attachments/assets/6cbe5dba-2c94-4f60-a4b8-90e90860d50b" />
+<img width="1600" height="842" alt="image" src="https://github.com/user-attachments/assets/816e7455-44ba-48ff-b62d-1938b64d8286" />
 
 ---
 
