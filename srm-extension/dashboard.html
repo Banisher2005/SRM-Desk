@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRM Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07070f;--panel:#0f0f1a;--border:#1a1a2e;--accent:#7c3aed;--cyan:#06b6d4;--amber:#f59e0b;--green:#22c55e;--red:#ef4444;--text:#e2e8f0;--muted:#64748b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(124,58,237,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,.03) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.wrap{max-width:1100px;margin:0 auto;padding:2rem;position:relative;z-index:1}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.brand{font-size:1.8rem;font-weight:800;letter-spacing:-.02em}.brand span{color:var(--accent)}
+.meta{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);text-align:right}
+.tabs{display:flex;gap:.4rem;margin-bottom:2rem;background:var(--panel);padding:.35rem;border-radius:10px;border:1px solid var(--border);width:fit-content}
+.tab{padding:.45rem 1rem;border-radius:7px;border:none;background:none;font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.tab.active{background:var(--accent);color:#fff}
+.section{display:none}.section.active{display:block}
+.sum{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:2rem}
+.sc{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem}
+.sl{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem}
+.sv{font-family:'Space Mono',monospace;font-size:1.7rem;font-weight:700;line-height:1}
+.ss{font-size:.65rem;color:var(--muted);margin-top:.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.8rem}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;position:relative;overflow:hidden;transition:all .25s}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--bar,var(--accent))}
+.card:hover{transform:translateY(-2px);border-color:rgba(124,58,237,.3)}
+.cn{font-size:.88rem;font-weight:700;margin-bottom:.2rem}
+.cc{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-bottom:.8rem}
+.prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:.7rem}
+.pct{font-family:'Space Mono',monospace;font-size:1.8rem;font-weight:700;line-height:1}
+.frac{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted)}
+.track{height:5px;background:var(--border);border-radius:100px;overflow:hidden;margin-bottom:.7rem;position:relative}
+.fill{height:100%;border-radius:100px;transition:width 1s}
+.minline{position:absolute;top:0;bottom:0;left:75%;width:2px;background:rgba(245,158,11,.5)}
+.skip{font-family:'Space Mono',monospace;font-size:.65rem;font-weight:700;padding:.2rem .55rem;border-radius:100px}
+.skip-ok{background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.25)}
+.skip-warn{background:rgba(245,158,11,.12);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.skip-bad{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.25)}
+.mc{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:1.1rem;transition:all .25s}
+.mc:hover{border-color:rgba(6,182,212,.3);transform:translateY(-2px)}
+.comp{display:flex;flex-direction:column;gap:.35rem;margin-top:.8rem}
+.cr{display:flex;justify-content:space-between;align-items:center;padding:.4rem .7rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px}
+.clbl{font-size:.75rem;color:var(--muted)}.cval{font-family:'Space Mono',monospace;font-size:.9rem;font-weight:700}
+.ctot{display:flex;justify-content:space-between;align-items:center;padding:.5rem .7rem;background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.2);border-radius:6px;margin-top:.3rem}
+.cls{display:flex;align-items:stretch;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--panel);transition:all .2s;position:relative}
+.cls:hover{border-color:rgba(124,58,237,.3);transform:translateX(3px)}
+.cls.now{border-color:rgba(34,197,94,.4)!important;background:rgba(34,197,94,.03)!important}
+.cls.past{opacity:.4}
+.nowbar{position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);box-shadow:0 0 8px var(--green)}
+.ctime{min-width:90px;background:rgba(124,58,237,.08);border-right:1px solid rgba(124,58,237,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.8rem .4rem;gap:.1rem}
+.ctm{font-family:'Space Mono',monospace;font-size:.95rem;font-weight:700;color:var(--accent)}
+.cte{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--muted)}
+.cbody{flex:1;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center}
+.cname{font-size:.88rem;font-weight:600;margin-bottom:.2rem}
+.cmeta{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted)}
+.typbadge{font-family:'Space Mono',monospace;font-size:.6rem;padding:.18rem .55rem;border-radius:5px}
+.t-theory{background:rgba(124,58,237,.12);color:var(--accent);border:1px solid rgba(124,58,237,.25)}
+.t-lab{background:rgba(6,182,212,.12);color:var(--cyan);border:1px solid rgba(6,182,212,.25)}
+.empty{text-align:center;padding:4rem;color:var(--muted);font-family:'Space Mono',monospace;font-size:.75rem}
+.shdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+.stitle{font-size:1.2rem;font-weight:700}
+.chip{font-family:'Space Mono',monospace;font-size:.65rem;color:var(--accent);background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);padding:.25rem .65rem;border-radius:100px}
+.no-data{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:1rem;color:var(--muted);font-family:'Space Mono',monospace;font-size:.75rem;text-align:center}
+.sched{display:flex;flex-direction:column;gap:.5rem}
+@media(max-width:700px){.sum{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+
+.day-selector{display:flex;gap:.4rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.day-btn{padding:.35rem .8rem;border-radius:7px;border:1px solid var(--border);background:var(--panel);color:var(--muted);font-family:'Space Mono',monospace;font-size:.65rem;cursor:pointer;transition:all .2s;position:relative}
+.day-btn:hover{border-color:rgba(124,58,237,.4);color:var(--text)}
+.day-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.today-dot{color:var(--green);margin-left:.3rem;font-size:.5rem;vertical-align:super}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hdr">
+    <div>
+      <div class="brand">SRM <span>DESK</span></div>
+      <div style="font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted)">//your academia. no nonsense.</div>
+    </div>
+    <div class="meta" id="meta">loading...</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="today">Today</button>
+    <button class="tab" data-tab="att">Attendance</button>
+    <button class="tab" data-tab="marks">Marks</button>
+  </div>
+
+  <div id="nodata" style="display:none">
+    <div class="no-data">
+      <div style="font-size:3rem;opacity:.4">🔌</div>
+      <div>No data synced yet.</div>
+      <div>Click the SRM Desk extension icon → Sync Data</div>
+    </div>
+  </div>
+
+  <div id="today" class="section active">
+    <div class="sum" id="sum"></div>
+    <div class="shdr"><div class="stitle">Schedule</div><div class="chip" id="dayChip"></div></div>
+    <div class="day-selector" id="daySelector"></div>
+    <div class="sched" id="sched"></div>
+  </div>
+
+  <div id="att" class="section">
+    <div class="shdr"><div class="stitle">Attendance</div><div class="chip">min 75%</div></div>
+    <div class="grid" id="attGrid"></div>
+  </div>
+
+  <div id="marks" class="section">
+    <div class="shdr"><div class="stitle">Marks</div></div>
+    <div class="grid" id="marksGrid"></div>
+  </div>
+</div>
+<script src="dashboard.js"></script>
+</body>
+</html>
