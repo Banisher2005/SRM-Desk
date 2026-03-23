@@ -19,8 +19,9 @@ Features
 How it works
   The Chrome extension injects into your already-logged-in SRM Academia session and reads the rendered DOM directly — no scraping APIs, no third-party servers. Data is stored in chrome.storage.local and read by the dashboard page bundled with the extension.
 Stack
-Chrome Extension (MV3) · Vanilla JS · HTML/CSS
+Chrome Extension (MV3)
+· Vanilla JS 
+· HTML/CSS
 
-Disclaimer
-
+#Disclaimer
 Unofficial project. Not affiliated with SRM Institute of Science and Technology. Use responsibly.
