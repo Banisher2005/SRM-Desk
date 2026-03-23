@@ -1,4 +1,4 @@
-<img width="1600" height="842" alt="image" src="https://github.com/user-attachments/assets/3efa89ba-8452-4717-b6d3-1353e3e64c4a" /><img width="1600" height="815" alt="image" src="https://github.com/user-attachments/assets/be8e15e5-f988-47c9-8c69-61251e620979" /># SRM Desk
+# SRM Desk
 
 An unofficial Chrome extension that replaces the SRM Academia portal with a clean, fast dashboard. Shows your attendance with skip margins, internal marks, and today's class schedule resolved from the Day Order system.
 
