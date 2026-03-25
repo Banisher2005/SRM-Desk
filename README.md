@@ -39,7 +39,7 @@ SRM Academia is built on Zoho Creator and is notoriously slow and cluttered. SRM
 
 **Timetable**
 - Schedule resolved using the Day Order shown on the Academia welcome page, not the calendar weekday
-- Supports Batch 1 unified timetable slot codes (A, B, C, D, E, F, G, P-slots, L-slots)
+- Supports Batch 1 and Batch 2 unified timetable slot codes (A, B, C, D, E, F, G, P-slots, L-slots)
 - Browse any Day Order (Day 1 through Day 5) from the dashboard
 - Current class highlighted, past classes dimmed
 
